@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='submitData_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Submit Data</h2>
+        <form id="submitDataForm" method="post" action="/submit_data">
+            <div class="form-group">
+                <label for="incorrect_sentence">Incorrect Sentence:</label>
+                <textarea id="incorrect_sentence" name="incorrect_sentence" placeholder="Enter the incorrect sentence here..." required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="correct_sentence">Correct Sentence:</label>
+                <textarea id="correct_sentence" name="correct_sentence" placeholder="Enter the corresponding correct sentence here..." required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit Data</button>
+                <button type="button" class="back-btn" onclick="goToHomePage()">Back</button>
+            </div>
+        </form>
+        <div id="responseMessage" class="form-group" style="display: none;"></div>
+    </div>
+
+    <script>
+        document.getElementById("submitDataForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            var incorrectSentence = formData.get("incorrect_sentence");
+            var correctSentence = formData.get("correct_sentence");
+    
+            // Make AJAX request to /submitData route
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/submit_data");
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    // Show success message
+                    document.getElementById("responseMessage").innerText = "Data submitted successfully!";
+                    document.getElementById("responseMessage").style.display = "block";
+                    document.getElementById("responseMessage").classList.add("success");
+                } else {
+                    // Show error message
+                    document.getElementById("responseMessage").innerText = "Failed to submit data. Please try again later.";
+                    document.getElementById("responseMessage").style.display = "block";
+                    document.getElementById("responseMessage").classList.add("error");
+                }
+            };
+            xhr.send("incorrect_sentence=" + encodeURIComponent(incorrectSentence) + "&correct_sentence=" + encodeURIComponent(correctSentence));
+        });
+    
+        function goToHomePage() {
+            window.location.href = "/";
+        }
+    </script>
+    
+</body>
+</html>

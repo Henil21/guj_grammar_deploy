@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='viewData_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Submitted Samples</h2>
+        <div class="feedback-list">
+            {% if submitted_samples %}
+                <table>
+                    <tr>
+                        <th>Incorrect Sentence</th>
+                        <th>Correct Sentence</th>
+                    </tr>
+                    {% for entry in submitted_samples %}
+                        <tr>
+                            <td>{{ entry.incorrect_sentence }}</td>
+                            <td>{{ entry.correct_sentence }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            {% else %}
+                <p>No feedback entries found.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gujarati Grammarly</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Gujarati Grammarly</h1>
+        <form method="post" action="/" onsubmit="return validateForm()">
+            <div class="columns">
+                <div class="columns">
+                    <textarea class="mytext" id="no_words" name="no_words" placeholder="Enter your text here...">{{ no_words }}</textarea>
+                </div>
+                <div class="columns">
+                    <textarea class="mytext" readonly style="background-color: #f0f0f0; cursor: not-allowed;">{{ response }}</textarea>
+                </div>
+            </div>
+            <div>
+                <button type="submit" class="generate-btn">Correct</button>
+            </div>
+        </form>
+        <div id="message" style="display: none; color: rgb(59, 56, 56);"></div>
+
+    <!-- Footer section -->
+    <footer>
+        <ul>
+            <li><a href="/about">About</a></li>
+            <li><a href="/submit_data">Submit data</a></li>
+            <li><a href="/feedback">Submit feedback</a></li>
+            <li><a href="https://huggingface.co/Jayveersinh-Raj/guj-grammar-base">Model checkpoints</a></li>
+        </ul>
+    </footer>
+</div>
+
+    <script>
+        function validateForm() {
+            var inputValue = document.getElementById('no_words').value.trim();
+            if (inputValue === "") {
+                showMessage("Please enter some text before submitting.");
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
+
+        function showMessage(message) {
+            var messageElement = document.getElementById('message');
+            messageElement.innerHTML = message;
+            messageElement.style.display = 'block';
+
+            // Hide the message after 3 seconds (adjust as needed)
+            setTimeout(function() {
+                messageElement.style.display = 'none';
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

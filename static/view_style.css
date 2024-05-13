@@ -1,0 +1,45 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+.feedback-list {
+    margin-top: 20px;
+}
+
+.feedback-item {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.feedback-info {
+    margin-bottom: 5px;
+}
+
+.feedback-info .name {
+    font-weight: bold;
+}
+
+.feedback-info .date {
+    color: #777;
+    font-size: 0.8em;
+}
+
+.feedback-text {
+    white-space: pre-wrap;
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Gujarati Grammarly</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='about_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>About</h1>
+        <div class="profile-container">
+            <div class="profile">
+                <img src="../assests/picture_me.png" alt="Profile Picture">
+            </div>
+        </div>
+        <div class="content">
+            <p>I am of passionate individuals dedicated to improving Gujarati language proficiency through innovative technology. My mission is to provide accessible tools and resources for learners and enthusiasts alike.</p>
+            <p>With years of experience in language learning and technology development, I strive to create solutions that empower users to communicate effectively and confidently in Gujarati.</p>
+            <p>I started this project as my Bachelors thesis from Innopolis University, but I am committed on improving it more and more using reinforcment learning and future training. Your samples, and feedback both are welcome, thank you for the contribution. AI for All if my ultimate moto.</p>
+            <p> Checkout my github for more and for contact: <a href="https://www.github.com/Jayveersinh-Raj">👉GitHub</a>
+        </div>
+        <div>
+            <button type="button" class="back-btn" onclick="goToHomePage()">Back</button>
+        </div>
+    </div>
+
+    <script>
+        function goToHomePage() {
+            window.location.href = "/";
+        }
+    </script>
+</body>
+</html>

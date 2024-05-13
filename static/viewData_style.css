@@ -1,0 +1,81 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 800px; /* Adjust the width as needed */
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.feedback-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px; /* Add margin at the bottom of the table */
+}
+
+.feedback-list th,
+.feedback-list td {
+    border: 1px solid #ccc; /* Add border to each cell */
+    padding: 8px;
+    text-align: left;
+}
+
+.feedback-list th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.feedback-list tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.feedback-list tr:hover {
+    background-color: #f2f2f2;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    height: 100px;
+}
+
+.form-group .optional {
+    font-size: 12px;
+    color: #666;
+}
+
+.form-group button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background-color: #45a049;
+}

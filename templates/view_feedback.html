@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Feedback</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='view_style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Feedback Entries</h2>
+        <div class="feedback-list">
+            {% if feedback_entries %}
+                <ul>
+                    {% for entry in feedback_entries %}
+                        <li>
+                            <div class="feedback-item">
+                                <div class="feedback-info">
+                                    <span class="name">{{ entry.name or "Anonymous" }}</span>
+                                </div>
+                                <div class="feedback-text">{{ entry.feedback_text }}</div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No feedback entries found.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
