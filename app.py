@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -51,6 +51,10 @@ with app.app_context():
     db.create_all() 
 
 # Routes...
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(app.root_path, 'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
 @app.route('/view_feedback')
 def view_feedback():
     feedback_entries = Feedback.query.all()
